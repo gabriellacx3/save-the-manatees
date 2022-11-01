@@ -3,7 +3,7 @@
 /* default to border-box */
 html {
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 *, *:before, *:after {
@@ -12,10 +12,8 @@ html {
 
 /* adjust typography defaults */
 body {
-  margin: 3px;
-  font-family: monospace;
-  background: rgb(0, 139, 139);
-  font-size: 20px;
+  margin: 0;
+  font-family: sans-serif;
 }
 
 /* images and videos max out at full width */
@@ -25,202 +23,100 @@ video {
   max-width: 100%;
 }
 
-header {
-  background: #dc143c;
-  padding: 10px;
-  font-family: "Cinzel Decorative", cursive;
-  text-align: center;
+.content-container {
+  position: relative;
 }
 
-h2 {
-  font-family: 'Bangers', cursive;
-  font-size:46px;
-  text-align: center;
-  padding: 10px;
-  color: #90EE90
+.content-container i {
+  font-size: 24px;
+  position: absolute;
+  color: white; 
+  display: inline-block;
+  margin-top: 15px; 
+  cursor: pointer; 
 }
 
-.wrapper{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    width: fit-content;
-    height:auto;
-}
-button{
-    width:200px;
-    height:70px;
-    background: linear-gradient(to left top, #D2691E 50%, #B8860B 50%);
-    border-style: none;
-    color:#FFF8DC;
-    font-size: 12px;
-    letter-spacing: 3px;
-    font-family: "Raleway", cursive;
-    font-weight: 600;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    padding: 0px;
-    overflow: hidden;
-    transition: all .5s;
-    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
-}
-button span{
-    position: absolute;
-    display: block;
-}
-button span:nth-child(1){
-    height: 3px;
-    width:200px;
-    top:0px;
-    left:-200px;
-    background: linear-gradient(to right, rgb(0, 139, 139), #008B8B);
-    border-top-right-radius: 1px;
-    border-bottom-right-radius: 1px;
-    animation: span1 2s linear infinite;
-    animation-delay: 1s;
+
+.left {
+  left: 10px;
 }
 
-@keyframes span1{
-    0%{
-        left:-200px
-    }
-    100%{
-        left:200px;
-    }
-}
-button span:nth-child(2){
-    height: 70px;
-    width: 3px;
-    top:-70px;
-    right:0px;
-    background: linear-gradient(to bottom, rgb(184, 134, 11), #B8860B);
-    border-bottom-left-radius: 1px;
-    border-bottom-right-radius: 1px;
-    animation: span2 2s linear infinite;
-    animation-delay: 2s;
-}
-@keyframes span2{
-    0%{
-        top:-70px;
-    }
-    100%{
-        top:70px;
-    }
-}
-button span:nth-child(3){
-    height:3px;
-    width:200px;
-    right:-200px;
-    bottom: 0px;
-    background: linear-gradient(to left, rgba(0,0,0,0), #f6e58d);
-    border-top-left-radius: 1px;
-    border-bottom-left-radius: 1px;
-    animation: span3 2s linear infinite;
-    animation-delay: 3s;
-}
-@keyframes span3{
-    0%{
-        right:-200px;
-    }
-    100%{
-        right: 200px;
-    }
+.left:hover{
+  animation-name: floating;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  color: gold; 
 }
 
-button span:nth-child(4){
-    height:70px;
-    width:3px;
-    bottom:-70px;
-    left:0px;
-    background: linear-gradient(to top, rgb(184, 134, 11), #B8860B);
-    border-top-right-radius: 1px;
-    border-top-left-radius: 1px;
-    animation: span4 2s linear infinite;
-    animation-delay: 4s;
-}
-@keyframes span4{
-    0%{
-        bottom: -70px;
-    }
-    100%{
-        bottom:70px;
-    }
-}
-
-button:hover{
-    transition: all .5s;
-    transform: rotate(-3deg) scale(1.1);
-    box-shadow: 0px 3px 5px rgb(210, 105, 30);
-}
-button:hover span{
-    animation-play-state: paused;
-}
-
-#seventh>button{
-  border:1px solid rgb(102, 205, 170);
-  transition:all .5s ease-in-out;
-}
-
-#seventh:hover button{
-  border:1px solid white;
-  font-size:20px;
-}
-
-#ninth>button{
-  transition:all .5s ease-in-out;
-}
-
-#ninth:hover button{
-  background:white;
-  color:#6495ED;
-}
-
-@-webkit-keyframes rotate {
-    0% {
-        -webkit-transform:translate(100px, 100px) rotate(0deg) translate(-100px, -100px) rotate(0deg);
-        background-color:red;
-    }  
-  13% {
-        -webkit-transform:translate(100px, 100px) rotate(45deg) translate(-100px, -100px) rotate(-45deg);
-  }
-  25% {
-      -webkit-transform:translate(100px, 100px) rotate(90deg) translate(-100px, -100px) rotate(-90deg);
-  }
-  38% {
-      -webkit-transform:translate(100px, 100px) rotate(135deg) translate(-100px, -100px) rotate(0deg);
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
   }
   50% {
-      -webkit-transform:translate(100px, 100px) rotate(180deg) translate(-100px, -100px) rotate(-180deg);
+    transform: translateY(5px);
   }
-  63% {
-      -webkit-transform:translate(100px, 100px) rotate(225deg) translate(-100px, -100px) rotate(225deg);
+  100%  {
+    transform: translateY(-0px);
   }
-  75% {
-      -webkit-transform:translate(100px, 100px) rotate(270deg) translate(-100px, -100px) rotate(-270deg);
-  }
-  88% {
-      -webkit-transform:translate(100px, 100px) rotate(315deg) translate(-100px, -100px) rotate(315deg);
-  }
-    100% {
-        -webkit-transform:translate(100px, 100px) rotate(360deg) translate(-100px, -100px) rotate(-360deg);
-    }
 }
-#circle {
-    height: 50px;
-    width: 50px;
-    border-radius:25px;
-    background-color: green;
-    -webkit-animation-duration: 4s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-name:"rotate";
-    -webkit-animation-iteration-count: infinite;
-    position:absolute;
-    left:30%;
-    top:20%; 
+
+.right {
+  right: 10px;
 }
-#button {
-  width:130px;
-  background:green;
+
+.right:hover{
+  animation-name: floating;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100%  {
+    transform: translateY(-0px);
+  }
+}
+
+h1 {
+  text-align: center; 
+}
+
+/* every element w/ this class takes full-screen */
+.full-screen {
+  border: 1px solid grey; 
+  width: 100%;
+  height: calc(100vh - 20px);
+  position: absolute;
+  top:0;
+  left:0;
+  padding-top: 40px; 
+}
+
+.full-screen p {
+  padding: 10px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+
+
+#slide-1 {
+  background: #94FBAB;
+}
+
+#slide-2 {
+  background: #B8E1FF;
+}
+
+#slide-3 {
+  background: #fb8500;
 }
